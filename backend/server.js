@@ -12,11 +12,14 @@ app.use(cors(
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/api/settings', (req, res) => {
+const sendSettings = (req, res) => {
     res.json(settings);
-})
+};
 
-app.get('/api/pages', (req, res) => {
+app.get('/api/settings', sendSettings);
+app.get('/api/common', sendSettings);
+
+const sendPage = (req, res) => {
     const page = pages.find((p) => p.path === req.query.path);
 
     if(!page){
@@ -24,7 +27,10 @@ app.get('/api/pages', (req, res) => {
     }
 
     res.json(page);
-})
+};
+
+app.get('/api/pages', sendPage);
+app.get('/api/page', sendPage);
 
 app.listen(PORT, () => {
     console.log(`Server works on http://localhost:${PORT}`);
