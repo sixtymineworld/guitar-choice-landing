@@ -24,3 +24,4 @@ export function getSettings() {
 export function getPage(path) {
   return getJson(`/api/page?path=${encodeURIComponent(path)}`);
 }
+
