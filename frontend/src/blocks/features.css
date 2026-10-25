@@ -26,3 +26,4 @@
 @media (min-width: 768px) {
   .features__grid, .testimonials__list { grid-template-columns: repeat(3, 1fr); }
 }
+

@@ -30,3 +30,4 @@ export function hero({ anchor = 'hero', badge = '', title = '', subtitle = '', i
     </section>
   `;
 }
+

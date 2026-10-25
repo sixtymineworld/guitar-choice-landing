@@ -20,3 +20,4 @@ export function contacts({ anchor = 'contacts', title = 'Контакти', phon
     </section>
   `;
 }
+

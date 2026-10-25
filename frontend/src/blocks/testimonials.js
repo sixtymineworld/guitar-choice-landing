@@ -23,3 +23,4 @@ export function testimonials({ anchor = 'testimonials', title = '', items = [] }
     </section>
   `;
 }
+

@@ -6,9 +6,9 @@ import pages from "./data/pages.json" with {type: 'json'};
 
 
 const app = express();
-app.use(cors(
-    {origin: process.env.FRONTEND_URL}
-));
+app.use(cors({
+    origin: process.env.FRONTEND_URL || '*'
+}));
 
 const PORT = process.env.PORT || 3000;
 

@@ -25,3 +25,4 @@ export function features({ anchor = 'features', title = '', items = [] }) {
     </section>
   `;
 }
+
