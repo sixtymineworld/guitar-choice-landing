@@ -8,7 +8,7 @@ export const Hero: Block = {
         {name: 'badge', type: 'text', label: "Лейба"},
         {name: 'title', type: 'text', label: 'Заголовок', required: true},
         {name: 'subtitle', type: 'textarea', label: 'Підзаголовок', required: true},
-        {name: 'image', type: 'upload', relationTo: 'media', label: "Зображення", required: true},
+        {name: 'image', type: 'upload', relationTo: 'media', label: "Зображення", required: false},
         {name: 'buttons', type: 'array', label: 'Кнопки', fields: [
             {name: 'text', type: 'text', required: true},
             {name: 'link', type: 'text', required: true},

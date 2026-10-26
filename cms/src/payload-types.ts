@@ -183,7 +183,7 @@ export interface Page {
             badge?: string | null;
             title: string;
             subtitle: string;
-            image: number | Media;
+            image?: (number | null) | Media;
             buttons?:
               | {
                   text: string;
@@ -210,6 +210,33 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'features';
+          }
+        | {
+            anchor?: string | null;
+            title: string;
+            items?:
+              | {
+                  name: string;
+                  role?: string | null;
+                  text: string;
+                  rating?: number | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'testimonials';
+          }
+        | {
+            anchor?: string | null;
+            title: string;
+            phone: string;
+            email: string;
+            address: string;
+            schedule?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contacts';
           }
       )[]
     | null;
@@ -380,6 +407,35 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        testimonials?:
+          | T
+          | {
+              anchor?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    name?: T;
+                    role?: T;
+                    text?: T;
+                    rating?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        contacts?:
+          | T
+          | {
+              anchor?: T;
+              title?: T;
+              phone?: T;
+              email?: T;
+              address?: T;
+              schedule?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -431,6 +487,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Common {
   id: number;
   siteName: string;
+  shopUrl?: string | null;
   menu?:
     | {
         label: string;
@@ -450,6 +507,7 @@ export interface Common {
  */
 export interface CommonSelect<T extends boolean = true> {
   siteName?: T;
+  shopUrl?: T;
   menu?:
     | T
     | {

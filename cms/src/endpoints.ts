@@ -20,6 +20,7 @@ export const commonEndpoint: Endpoint = {
 
         return Response.json({
             siteName: common.siteName,
+            shopUrl: common.shopUrl ?? 'http://127.0.0.1:8000',
             menu: (common.menu ?? []).map(({ label, link }: any) => ({ label, link })),
             footer: { text: common.footer?.text ?? '' }
         })
@@ -54,3 +55,122 @@ export const pageEndpoint: Endpoint = {
         })
     }
 }
+
+export const seedEndpoint: Endpoint = {
+    path: '/seed',
+    method: 'get',
+    handler: async (req: PayloadRequest) => {
+        // 1. Оновлюємо Global "Common"
+        await req.payload.updateGlobal({
+            slug: 'common',
+            data: {
+                siteName: 'Guitar Choice',
+                shopUrl: 'http://127.0.0.1:8000',
+                menu: [
+                    { label: 'Головна', link: '#hero' },
+                    { label: 'Переваги', link: '#features' },
+                    { label: 'Відгуки', link: '#testimonials' },
+                    { label: 'Контакти', link: '#contacts' }
+                ],
+                footer: {
+                    text: 'Guitar Choice — твій провідник у світ гітарної музики. Офіційні інструменти з передпродажним налаштуванням майстром та швидкою доставкою з нашого магазину.'
+                }
+            }
+        });
+
+        // 2. Створюємо або оновлюємо сторінку '/'
+        const existingPages = await req.payload.find({
+            collection: 'pages',
+            where: { path: { equals: '/' } }
+        });
+
+        const pageData = {
+            path: '/',
+            title: 'Головна',
+            blocks: [
+                {
+                    blockType: 'hero',
+                    anchor: 'hero',
+                    badge: 'Твій перший акорд тут',
+                    title: 'Знайди свою ідеальну гітару',
+                    subtitle: 'Guitar Choice — спеціалізований інтернет-магазин та сервіс підбору гітар. Обирай акустику, класику чи електрогітару та переходь у наш магазин за найкращою ціною.',
+                    buttons: [
+                        { text: 'Перейти в магазин', link: 'http://127.0.0.1:8000', variant: 'primary' },
+                        { text: 'Чому ми', link: '#features', variant: 'secondary' }
+                    ]
+                },
+                {
+                    blockType: 'features',
+                    anchor: 'features',
+                    title: 'Стандарти майстерні Guitar Choice',
+                    items: [
+                        {
+                            icon: '01',
+                            title: 'Передпродажне налаштування',
+                            text: 'Кожен інструмент проходить відбудову гітарним майстром: регулювання висоти струн, анкера, шліфування ладів та інтонації.'
+                        },
+                        {
+                            icon: '02',
+                            title: 'Клімат-контроль та доставка',
+                            text: 'Посилений ударостійкий короб з термоізоляцією. Інструмент транспортується в оптимальному мікрокліматі по всій Україні.'
+                        },
+                        {
+                            icon: '03',
+                            title: '24 місяці офіційної гарантії',
+                            text: "Прямі поставки від ліцензованих дистриб'юторів, фірмовий паспорт інструмента та перше безкоштовне сезонне ТО."
+                        }
+                    ]
+                },
+                {
+                    blockType: 'testimonials',
+                    anchor: 'testimonials',
+                    title: 'Досвід музикантів',
+                    items: [
+                        {
+                            name: 'Максим Ковальчук',
+                            role: 'Гітарист гурту «Океани», Львів',
+                            text: 'Замовляв Stratocaster через каталог. Гітара приїхала повністю відбудована, струни низько над грифом, стрій тримає залізобетонно одразу з коробки.',
+                            rating: 5
+                        },
+                        {
+                            name: 'Дарина Мельник',
+                            role: 'Викладач акустичної гітари',
+                            text: "Обирала класичну гітару для учениці. Майстер провів ретельну перевірку геометрії деки та натягнув м'які струни Savarez. Рівень сервісу вражає.",
+                            rating: 5
+                        },
+                        {
+                            name: 'Ігор Савченко',
+                            role: 'Сесійний музикант',
+                            text: 'Швидка відправка в день замовлення, надійне пакування в посилений бокс. Дуже круто, що сайт напряму веде в каталог магазину з актуальною наявністю.',
+                            rating: 5
+                        }
+                    ]
+                },
+                {
+                    blockType: 'contacts',
+                    anchor: 'contacts',
+                    title: 'Шоурум та Майстерня',
+                    phone: '+38 (067) 123-45-67',
+                    email: 'atelier@guitar-choice.ua',
+                    address: 'вул. Дорога Кривчацька, 17A, Львів, Україна',
+                    schedule: 'Пн–Сб: 10:00 — 20:00 | Нд: 11:00 — 18:00'
+                }
+            ]
+        };
+
+        if (existingPages.totalDocs > 0) {
+            await req.payload.update({
+                collection: 'pages',
+                id: existingPages.docs[0].id,
+                data: pageData as any
+            });
+        } else {
+            await req.payload.create({
+                collection: 'pages',
+                data: pageData as any
+            });
+        }
+
+        return Response.json({ success: true, message: 'Дані успішно завантажено в Neon PostgreSQL!' });
+    }
+};

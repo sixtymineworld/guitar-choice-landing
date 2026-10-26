@@ -9,7 +9,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import {Pages} from './collections/Pages'
 import {Common} from './globals/Common'
-import { commonEndpoint, pageEndpoint } from './endpoints'
+import { commonEndpoint, pageEndpoint, seedEndpoint } from './endpoints'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +25,7 @@ export default buildConfig({
   cors: [ process.env.FRONTEND_URL || ''],
   serverURL: process.env.CMS_URL || '',
   globals: [Common],
-  endpoints: [commonEndpoint, pageEndpoint],
+  endpoints: [commonEndpoint, pageEndpoint, seedEndpoint],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
