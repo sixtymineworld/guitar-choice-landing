@@ -1,13 +1,19 @@
 export function testimonials({ anchor, title, items }) {
     return `
         <section class="testimonials" id="${anchor}">
-            <h2 class="section-title">${title}</h2>
+            <div class="section-header">
+                <span class="section-kicker">РЕАЛЬНИЙ ДОСВІД</span>
+                <h2 class="section-title">${title}</h2>
+            </div>
             <div class="testimonials__list">
-            ${items.map(({ name, text, rating }) => `
+            ${items.map(({ name, role, text }) => `
                 <article class="testimonial">
-                    <span class="testimonial__rating">${'★'.repeat(rating)}</span>
+                    <div class="testimonial__quote-mark">“</div>
                     <p class="testimonial__text">${text}</p>
-                    <span class="testimonial__name">${name}</span>
+                    <div class="testimonial__author">
+                        <strong class="testimonial__name">${name}</strong>
+                        ${role ? `<span class="testimonial__role">${role}</span>` : ''}
+                    </div>
                 </article>
             `).join('')}
             </div>
