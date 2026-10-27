@@ -130,15 +130,6 @@ img {
     text-transform: uppercase;
 }
 
-.header__logo-tag {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.22em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-top: 2px;
-}
-
 .header__nav {
     display: flex;
     align-items: center;
@@ -277,18 +268,6 @@ img {
     line-height: 1.65;
     max-width: 440px;
     margin-bottom: 20px;
-}
-
-.footer__badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border: 1px solid var(--color-gold);
-    border-radius: var(--radius-sm);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    color: var(--color-gold);
-    text-transform: uppercase;
 }
 
 .footer__col-title {

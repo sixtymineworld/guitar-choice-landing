@@ -7,7 +7,6 @@ export function footer({ siteName, footer: { text }, shopUrl = 'http://127.0.0.1
                 <div class="footer__brand-col">
                     <div class="footer__logo">${siteName}</div>
                     <p class="footer__text">${text}</p>
-                    <div class="footer__badge">OFFICIAL STORE & ATELIER</div>
                 </div>
 
                 <div class="footer__nav-col">
