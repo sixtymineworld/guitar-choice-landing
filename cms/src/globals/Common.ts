@@ -6,7 +6,7 @@ export const Common: GlobalConfig = {
     access: {read: () => true},
     fields: [
         {name: 'siteName', type: 'text', label: 'Назва сайту', required: true},
-        {name: 'shopUrl', type: 'text', label: 'Посилання на магазин', defaultValue: 'http://127.0.0.1:8000'},
+        {name: 'shopUrl', type: 'text', label: 'Посилання на магазин', defaultValue: 'https://guitar-choice.onrender.com/'},
         {name: 'menu', type: 'array', label: 'Меню', fields:[
             {name: 'label', type: 'text', required: true},
             {name: 'link', type: 'text', required: true},

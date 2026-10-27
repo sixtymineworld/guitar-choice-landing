@@ -20,7 +20,7 @@ export const commonEndpoint: Endpoint = {
 
         return Response.json({
             siteName: common.siteName,
-            shopUrl: common.shopUrl ?? 'http://127.0.0.1:8000',
+            shopUrl: common.shopUrl ?? 'https://guitar-choice.onrender.com/',
             menu: (common.menu ?? []).map(({ label, link }: any) => ({ label, link })),
             footer: { text: common.footer?.text ?? '' }
         })
@@ -65,7 +65,7 @@ export const seedEndpoint: Endpoint = {
             slug: 'common',
             data: {
                 siteName: 'Guitar Choice',
-                shopUrl: 'http://127.0.0.1:8000',
+                shopUrl: 'https://guitar-choice.onrender.com/',
                 menu: [
                     { label: 'Головна', link: '#hero' },
                     { label: 'Переваги', link: '#features' },
@@ -95,7 +95,7 @@ export const seedEndpoint: Endpoint = {
                     title: 'Знайдіть гітару, що звучить як ви.',
                     subtitle: 'Guitar Choice — спеціалізований інтернет-магазин та сервіс підбору гітар. Обирай акустику, класику чи електрогітару та переходь у наш магазин за найкращою ціною.',
                     buttons: [
-                        { text: 'Перейти в магазин', link: 'http://127.0.0.1:8000', variant: 'primary' },
+                        { text: 'Перейти в магазин', link: 'https://guitar-choice.onrender.com/', variant: 'primary' },
                         { text: 'Чому ми', link: '#features', variant: 'secondary' }
                     ]
                 },

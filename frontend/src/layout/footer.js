@@ -1,4 +1,4 @@
-export function footer({ siteName, footer: { text }, shopUrl = 'http://127.0.0.1:8000' }) {
+export function footer({ siteName, footer: { text }, shopUrl = 'https://guitar-choice.onrender.com/' }) {
     const year = new Date().getFullYear();
 
     return `

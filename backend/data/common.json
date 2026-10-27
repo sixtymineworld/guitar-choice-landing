@@ -1,6 +1,6 @@
 {
   "siteName": "Guitar Choice",
-  "shopUrl": "http://127.0.0.1:8000",
+  "shopUrl": "https://guitar-choice.onrender.com/",
   "menu": [
     {
       "label": "Головна",

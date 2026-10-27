@@ -1,4 +1,4 @@
-export function contacts({ anchor, title, phone, email, address, schedule, shopUrl = 'http://127.0.0.1:8000' }) {
+export function contacts({ anchor, title, phone, email, address, schedule, shopUrl = 'https://guitar-choice.onrender.com/' }) {
     return `
         <section class="contacts" id="${anchor}">
             <div class="contacts__container">

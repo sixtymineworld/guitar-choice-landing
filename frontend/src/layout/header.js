@@ -1,4 +1,4 @@
-export function header({ siteName, menu, shopUrl = 'http://127.0.0.1:8000' }) {
+export function header({ siteName, menu, shopUrl = 'https://guitar-choice.onrender.com/' }) {
     return `
         <header class="header">
             <a class="header__logo" href="#hero">

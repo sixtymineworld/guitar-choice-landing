@@ -16,7 +16,7 @@
         "buttons": [
           {
             "text": "Перейти в магазин",
-            "link": "http://127.0.0.1:8000",
+            "link": "https://guitar-choice.onrender.com/",
             "variant": "primary"
           },
           {
