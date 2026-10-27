@@ -60,7 +60,6 @@ export const seedEndpoint: Endpoint = {
     path: '/seed',
     method: 'get',
     handler: async (req: PayloadRequest) => {
-        // 1. Оновлюємо Global "Common"
         await req.payload.updateGlobal({
             slug: 'common',
             data: {
@@ -78,7 +77,6 @@ export const seedEndpoint: Endpoint = {
             }
         });
 
-        // 2. Створюємо або оновлюємо сторінку '/'
         const existingPages = await req.payload.find({
             collection: 'pages',
             where: { path: { equals: '/' } }

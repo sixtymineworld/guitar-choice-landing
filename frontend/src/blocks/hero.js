@@ -32,9 +32,6 @@ export function hero({ anchor, badge, title, subtitle, buttons }) {
     `;
 }
 
-/**
- * Інтерактивне відстеження курсору для 3D-гітари
- */
 export function initHero3D() {
     const viewer = document.querySelector('#guitar-3d-model');
     const heroSection = document.querySelector('.hero');

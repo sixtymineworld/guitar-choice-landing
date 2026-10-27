@@ -1,4 +1,3 @@
-/* ---------- Секції ---------- */
 .features,
 .testimonials,
 .contacts {
@@ -6,7 +5,6 @@
     position: relative;
 }
 
-/* ---------- 01. Блок стандартів майстерні (Features) ---------- */
 .features__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -57,7 +55,6 @@
     line-height: 1.55;
 }
 
-/* ---------- 02. Блок відгуків музикантів (Testimonials) ---------- */
 .testimonials__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -123,7 +120,6 @@
     color: var(--color-accent);
 }
 
-/* ---------- 03. Блок контактів / Шоурум ---------- */
 .contacts__container {
     background: var(--color-surface-card);
     border: 1px solid var(--color-line);
@@ -197,7 +193,6 @@
     text-decoration: underline;
 }
 
-/* Карточка CTA у правій колонці */
 .contacts__cta-card {
     background: var(--color-accent);
     color: #ffffff;
@@ -256,7 +251,6 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* Адаптивність */
 @media (max-width: 860px) {
     .contacts__grid {
         grid-template-columns: 1fr;

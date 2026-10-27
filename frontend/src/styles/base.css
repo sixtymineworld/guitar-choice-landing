@@ -1,38 +1,31 @@
 :root {
-    /* Палітра Fender / Gibson Vintage Ivory & Oxblood */
     --color-bg: #fbf8f3;
     --color-surface: #f4ede1;
     --color-surface-card: #ffffff;
     --color-line: #e6dcce;
     --color-line-dark: rgba(112, 22, 40, 0.14);
     
-    /* Текстові кольори */
     --color-text: #1c1416;
     --color-muted: #615255;
     --color-subtle: #8c7c7f;
     
-    /* Heritage Oxblood / Deep Wine */
     --color-accent: #7a1529;
     --color-accent-hover: #5e0f1f;
     --color-accent-bright: #961d36;
     --color-accent-soft: #f7ebed;
     --color-accent-border: #e0b4bd;
     
-    /* Латунь / Античне золото (Hardware Accents) */
     --color-gold: #a67c38;
     --color-gold-light: #d8b87d;
     
-    /* Радіуси: прямокутні з легким скругленням замість круглих пілюль */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 14px;
     --radius-pill: 999px;
     
-    /* Шрифти */
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     
-    /* Тіні */
     --shadow-subtle: 0 4px 20px rgba(70, 20, 30, 0.05);
     --shadow-card: 0 10px 30px rgba(70, 20, 30, 0.07);
     --shadow-elevated: 0 18px 45px rgba(70, 20, 30, 0.11);
@@ -69,7 +62,6 @@ img {
     display: block;
 }
 
-/* Секції та заголовки у стилі каталогу */
 .section-header {
     margin-bottom: 26px;
     text-align: left;
@@ -97,7 +89,6 @@ img {
     line-height: 1.18;
 }
 
-/* Навбар у стилі музичного бренду */
 .header {
     display: flex;
     flex-wrap: wrap;
@@ -173,7 +164,6 @@ img {
     color: var(--color-accent);
 }
 
-/* Кнопки у стилі інструментальних брендів (строгі, чіткі) */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -237,7 +227,6 @@ img {
     box-shadow: 0 6px 20px rgba(122, 21, 41, 0.3);
 }
 
-/* Футер в стилі Gibson / Fender */
 .footer {
     margin-top: 56px;
     padding-top: 36px;
@@ -385,7 +374,6 @@ img {
     }
 }
 
-/* ---------- Плавне підтягування при скролі (Scroll Reveal) ---------- */
 .reveal {
     opacity: 0;
     transform: translateY(32px);

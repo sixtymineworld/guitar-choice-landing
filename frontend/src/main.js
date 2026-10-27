@@ -21,25 +21,17 @@ async function start() {
     <main>${renderBlocks(page.blocks)}</main>
     ${footer(settings)}
     `;
-    // Ініціалізація інтерактивної 3D-моделі гітари
+
     initHero3D();
-
-    // Плавний скрол по якірних посиланнях
     initSmoothScroll();
-
-    // Плавне підтягування блоків при скролі
     initScrollReveal();
-
-    // Підсвітка активного пункту меню при скролі
     initActiveNav();
 
   } catch (error) {
     app.textContent = `Something went wrong: ${error.message}`;
   }
 }
-/**
- * Плавний перехід по кліку на навігаційні якорі
- */
+
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
 
@@ -54,9 +46,7 @@ function initSmoothScroll() {
         });
     });
 }
-/**
- * Легке підтягування блоків (Scroll Reveal) через IntersectionObserver
- */
+
 function initScrollReveal() {
     const elements = document.querySelectorAll('.section-header, .feature, .testimonial, .contacts__container');
 
@@ -76,9 +66,7 @@ function initScrollReveal() {
         observer.observe(el);
     });
 }
-/**
- * Оновлення активної лінії під посиланням у навбарі під час скролу
- */
+
 function initActiveNav() {
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('.header__link[href^="#"]');
@@ -102,6 +90,5 @@ function initActiveNav() {
     window.addEventListener('scroll', onScroll);
     onScroll();
 }
-
 
 start();
