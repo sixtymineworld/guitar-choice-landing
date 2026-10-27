@@ -39,7 +39,8 @@ export const pageEndpoint: Endpoint = {
     method: 'get',
     handler: async (req: PayloadRequest) => {
 
-        const path = req.query.path
+        const url = new URL(req.url || '', 'https://localhost');
+        const path = url.searchParams.get('path') || (req.query as any)?.path || '/';
 
         const result = await req.payload.find({
             collection: 'pages',
@@ -48,7 +49,16 @@ export const pageEndpoint: Endpoint = {
             limit: 1
         })
 
-        const page = result.docs[0];
+        let page = result.docs[0];
+
+        if (!page) {
+            const fallback = await req.payload.find({
+                collection: 'pages',
+                depth: 2,
+                limit: 1,
+            });
+            page = fallback.docs[0];
+        }
 
         if (!page){
             return Response.json({error: 'Сторінку не знайдено'}, { status: 404, headers: corsHeaders })
