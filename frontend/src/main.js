@@ -21,7 +21,6 @@ async function start() {
     <main>${renderBlocks(page.blocks)}</main>
     ${footer(settings)}
     `;
-
     // Ініціалізація інтерактивної 3D-моделі гітари
     initHero3D();
 
@@ -38,78 +37,71 @@ async function start() {
     app.textContent = `Something went wrong: ${error.message}`;
   }
 }
-
 /**
  * Плавний перехід по кліку на навігаційні якорі
  */
 function initSmoothScroll() {
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href^="#"]');
-    if (!link) return;
-    const targetId = link.getAttribute('href');
-    if (!targetId || targetId === '#') return;
-    const target = document.querySelector(targetId);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-      history.pushState(null, '', targetId);
-    }
-  });
-}
+    const links = document.querySelectorAll('a[href^="#"]');
 
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+            const id = link.getAttribute('href');
+            const section = document.querySelector(id);
+
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+}
 /**
  * Легке підтягування блоків (Scroll Reveal) через IntersectionObserver
  */
 function initScrollReveal() {
-  const elements = document.querySelectorAll(
-    '.section-header, .feature, .testimonial, .contacts__container'
-  );
-  elements.forEach((el) => el.classList.add('reveal'));
+    const elements = document.querySelectorAll('.section-header, .feature, .testimonial, .contacts__container');
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
-  );
+    elements.forEach((el) => {
+        el.classList.add('reveal');
+    });
 
-  elements.forEach((el) => observer.observe(el));
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    });
+
+    elements.forEach((el) => {
+        observer.observe(el);
+    });
 }
-
 /**
  * Оновлення активної лінії під посиланням у навбарі під час скролу
  */
 function initActiveNav() {
-  const sections = document.querySelectorAll('section[id]');
-  const links = document.querySelectorAll('.header__link[href^="#"]');
-  if (!sections.length || !links.length) return;
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.header__link[href^="#"]');
 
-  const onScroll = () => {
-    let currentId = '';
-    const scrollPos = window.scrollY + 130;
+    function onScroll() {
+        let currentId = '';
+        sections.forEach((section) => {
+            if (window.scrollY + 130 >= section.offsetTop) {
+                currentId = '#' + section.id;
+            }
+        });
+        links.forEach((link) => {
+            link.classList.remove('is-active');
 
-    sections.forEach((sec) => {
-      if (scrollPos >= sec.offsetTop) {
-        currentId = `#${sec.id}`;
-      }
-    });
+            if (link.getAttribute('href') === currentId) {
+                link.classList.add('is-active');
+            }
+        });
+    }
 
-    links.forEach((l) => {
-      if (l.getAttribute('href') === currentId) {
-        l.classList.add('is-active');
-      } else {
-        l.classList.remove('is-active');
-      }
-    });
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+    window.addEventListener('scroll', onScroll);
+    onScroll();
 }
+
 
 start();
