@@ -12,6 +12,12 @@ function cleanerToBlock(block: Record<string, any>) {
     return clean;
 }
 
+const corsHeaders = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 export const commonEndpoint: Endpoint = {
     path: '/common',
     method: 'get',
@@ -23,7 +29,7 @@ export const commonEndpoint: Endpoint = {
             shopUrl: common.shopUrl ?? 'https://guitar-choice.onrender.com/',
             menu: (common.menu ?? []).map(({ label, link }: any) => ({ label, link })),
             footer: { text: common.footer?.text ?? '' }
-        })
+        }, { headers: corsHeaders })
     }
 }
 
@@ -45,14 +51,14 @@ export const pageEndpoint: Endpoint = {
         const page = result.docs[0];
 
         if (!page){
-            return Response.json({error: 'Сторінку не знайдено'}, {status:404} )
+            return Response.json({error: 'Сторінку не знайдено'}, { status: 404, headers: corsHeaders })
         }
 
         return Response.json({
             path: page.path,
             title: page.title,
             blocks: (page.blocks ?? []).map(cleanerToBlock)
-        })
+        }, { headers: corsHeaders })
     }
 }
 
