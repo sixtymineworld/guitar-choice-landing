@@ -2,22 +2,22 @@
 .features,
 .testimonials,
 .contacts {
-    padding-block: 70px;
+    padding-block: 42px;
     position: relative;
 }
 
 /* ---------- 01. Блок стандартів майстерні (Features) ---------- */
 .features__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .feature {
     background: var(--color-surface-card);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-sm);
-    padding: 38px 30px;
+    padding: 24px 22px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -27,48 +27,48 @@
 
 .feature:hover {
     border-color: var(--color-accent-border);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-card);
 }
 
 .feature__index {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 800;
     line-height: 1;
     color: var(--color-accent);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     display: block;
     letter-spacing: -0.02em;
 }
 
 .feature__title {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.25;
 }
 
 .feature__text {
     color: var(--color-muted);
-    font-size: 0.94rem;
-    line-height: 1.65;
+    font-size: 0.88rem;
+    line-height: 1.55;
 }
 
 /* ---------- 02. Блок відгуків музикантів (Testimonials) ---------- */
 .testimonials__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .testimonial {
     background: var(--color-surface-card);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-sm);
-    padding: 36px 30px;
+    padding: 24px 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -85,38 +85,38 @@
 
 .testimonial__quote-mark {
     font-family: var(--font-heading);
-    font-size: 3.8rem;
+    font-size: 2.6rem;
     line-height: 0.8;
     color: var(--color-gold);
     opacity: 0.45;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
 }
 
 .testimonial__text {
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: 0.94rem;
     font-style: italic;
     color: var(--color-text);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    line-height: 1.55;
+    margin-bottom: 16px;
 }
 
 .testimonial__author {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding-top: 18px;
+    gap: 2px;
+    padding-top: 12px;
     border-top: 1px solid var(--color-line);
 }
 
 .testimonial__name {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 700;
     color: var(--color-text);
 }
 
 .testimonial__role {
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -128,25 +128,26 @@
     background: var(--color-surface-card);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-md);
-    padding: 50px 44px;
+    padding: 32px 30px;
     box-shadow: var(--shadow-card);
 }
 
 .contacts__header-col {
-    margin-bottom: 36px;
+    margin-bottom: 22px;
     max-width: 680px;
 }
 
 .contacts__lead {
-    font-size: 1.05rem;
+    font-size: 0.94rem;
     color: var(--color-muted);
-    margin-top: 12px;
+    margin-top: 8px;
+    line-height: 1.5;
 }
 
 .contacts__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 28px;
     align-items: stretch;
 }
 
@@ -154,15 +155,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 24px;
-    padding-right: 20px;
+    gap: 16px;
+    padding-right: 14px;
 }
 
 .contacts__item {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding-bottom: 18px;
+    gap: 4px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--color-line);
 }
 
@@ -172,15 +173,15 @@
 }
 
 .contacts__label {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 800;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-gold);
 }
 
 .contacts__val {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-text);
 }
@@ -201,7 +202,7 @@
     background: var(--color-accent);
     color: #ffffff;
     border-radius: var(--radius-sm);
-    padding: 38px 34px;
+    padding: 24px 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -211,32 +212,32 @@
 .contacts__cta-tag {
     display: inline-block;
     align-self: flex-start;
-    padding: 4px 10px;
+    padding: 3px 8px;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: var(--radius-sm);
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 800;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     color: #ffffff;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .contacts__cta-title {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.25;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     color: #ffffff;
 }
 
 .contacts__cta-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.86rem;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 
 .contacts__cta-card .btn--primary {
@@ -244,6 +245,8 @@
     color: var(--color-accent) !important;
     border-color: #ffffff;
     font-weight: 800;
+    padding: 10px 20px;
+    font-size: 0.82rem;
     align-self: flex-start;
 }
 
@@ -260,5 +263,73 @@
     }
     .contacts__info-col {
         padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .features,
+    .testimonials,
+    .contacts {
+        padding-block: 30px;
+    }
+
+    .features__grid,
+    .testimonials__list {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .feature {
+        padding: 20px 16px;
+    }
+
+    .feature__index {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+
+    .testimonial {
+        padding: 18px 16px;
+    }
+
+    .testimonial__quote-mark {
+        font-size: 2.2rem;
+        margin-bottom: 4px;
+    }
+
+    .contacts__container {
+        padding: 20px 16px;
+    }
+
+    .contacts__header-col {
+        margin-bottom: 16px;
+    }
+
+    .contacts__lead {
+        font-size: 0.88rem;
+    }
+
+    .contacts__grid {
+        gap: 20px;
+    }
+
+    .contacts__cta-card {
+        padding: 20px 16px;
+    }
+
+    .contacts__cta-title {
+        font-size: 1.15rem;
+    }
+
+    .contacts__cta-desc {
+        font-size: 0.84rem;
+        margin-bottom: 14px;
+    }
+
+    .contacts__cta-card .btn--primary {
+        width: 100%;
+        text-align: center;
+        padding: 9px 16px;
+        font-size: 0.8rem;
     }
 }

@@ -25,7 +25,7 @@ export function hero({ anchor, badge, title, subtitle, buttons }) {
                     shadow-softness="0.8"
                     exposure="1.25"
                     camera-orbit="0deg 80deg 105%"
-                    style="width: 100%; height: 540px; outline: none; background: transparent;"
+                    style="width: 100%; outline: none; background: transparent;"
                 ></model-viewer>
             </div>
         </section>
