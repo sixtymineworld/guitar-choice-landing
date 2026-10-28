@@ -3,7 +3,10 @@ import type { GlobalConfig } from "payload";
 export const Common: GlobalConfig = {
     slug: 'common',
     label: 'Налаштування',
-    access: {read: () => true},
+    access: {
+        read: () => true,
+        update: () => true,
+    },
     fields: [
         {name: 'siteName', type: 'text', label: 'Назва сайту', required: true},
         {name: 'shopUrl', type: 'text', label: 'Посилання на магазин', defaultValue: 'https://guitar-choice.onrender.com/'},

@@ -7,7 +7,12 @@ import { Contacts } from '../blocks/Contacts';
 export const Pages: CollectionConfig = {
     slug: 'pages',
     labels: { plural: 'Сторінки', singular: 'Сторінка' },
-    access: { read: () => true },
+    access: {
+        read: () => true,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
+    },
     admin: { useAsTitle: 'title' },
     fields: [
         {
